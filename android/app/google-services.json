@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "991107703452",
+    "firebase_url": "https://iot-smart-irrigation-88064-default-rtdb.firebaseio.com",
+    "project_id": "iot-smart-irrigation-88064",
+    "storage_bucket": "iot-smart-irrigation-88064.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:991107703452:android:dd7eede9070de71d568359",
+        "android_client_info": {
+          "package_name": "com.example.smart_irrigation_iot"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDSQ4k940hIxkFOZX0ksLRR9IXM8nL8hR0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
