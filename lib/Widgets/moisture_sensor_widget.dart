@@ -35,20 +35,20 @@ class _MoistureSensorWidgetState extends State<MoistureSensorWidget> {
   @override
   Widget build(BuildContext context) {
     IconData statusIcon = determineStatusIcon(moistureLevel);
-    if (moistureLevel > 30 && moistureLevel < 500) {
+    if (moistureLevel > 50 && moistureLevel <= 70) {
       colors = const [
         Color(0xFF4682B4), // Medium Blue
         Color(0xFF3CB371), // Medium Green
       ];
-    } else if (moistureLevel > 500) {
+    } else if (moistureLevel > 70) {
       colors = const [
-        Color(0xFF000080), // Dark Blue
-        Color(0xFF006400), // Dark Green
+        Color(0xFFFF6347), // Tomato Red
+        Color(0xFFFFA07A), // Light Salmon
       ];
     } else {
       colors = const [
-        Color(0xFFADD8E6),
-        Color(0xFF90EE90),
+        Color(0xFF000080), // Dark Blue
+        Color(0xFF006400), // Dark Green
       ];
     }
 
@@ -87,7 +87,7 @@ class _MoistureSensorWidgetState extends State<MoistureSensorWidget> {
                     const SizedBox(height: 8),
                     Text(
                       'Moisture Level',
-                      style: moistureLevel > 500
+                      style: moistureLevel < 30
                           ? const TextStyle(
                               fontSize: 20,
                               fontWeight: FontWeight.bold,
@@ -98,7 +98,7 @@ class _MoistureSensorWidgetState extends State<MoistureSensorWidget> {
                     const SizedBox(height: 8),
                     Text(
                       '$moistureLevel%',
-                      style: moistureLevel > 500
+                      style: moistureLevel < 30
                           ? const TextStyle(
                               fontSize: 24,
                               fontWeight: FontWeight.bold,
@@ -107,15 +107,28 @@ class _MoistureSensorWidgetState extends State<MoistureSensorWidget> {
                               fontSize: 24, fontWeight: FontWeight.bold),
                     ),
                     const SizedBox(height: 8),
-                    moistureLevel > 30
+                    moistureLevel > 80
                         ? const Text(
-                            'Low moisture level Watering required',
+                            'Very low moisture level: Immediate watering required',
                             style: TextStyle(fontSize: 16, color: Colors.red),
                           )
-                        : const Text(
-                            'Moisture level is good',
-                            style: TextStyle(fontSize: 16, color: Colors.grey),
-                          ),
+                        : moistureLevel > 60
+                            ? const Text(
+                                'Low moisture level: Watering required',
+                                style:
+                                    TextStyle(fontSize: 16, color: Colors.red),
+                              )
+                            : moistureLevel > 40
+                                ? const Text(
+                                    'Moderate moisture level: Check if watering is needed',
+                                    style: TextStyle(
+                                        fontSize: 16, color: Colors.grey),
+                                  )
+                                : const Text(
+                                    'High moisture level: Soil is well-watered',
+                                    style: TextStyle(
+                                        fontSize: 16, color: Colors.green),
+                                  ),
                   ],
                 ),
               ),

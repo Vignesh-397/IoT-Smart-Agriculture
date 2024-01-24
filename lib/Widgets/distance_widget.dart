@@ -54,7 +54,7 @@ class _AnimalDetectionWidgetState extends State<AnimalDetectionWidget> {
               ),
             ],
           ),
-          content: Text('An animal is detected at $animalDistance meters.'),
+          content: Text('An animal is detected at $animalDistance cms.'),
           actions: <Widget>[
             TextButton(
               onPressed: () {
@@ -115,7 +115,7 @@ class _AnimalDetectionWidgetState extends State<AnimalDetectionWidget> {
                 const SizedBox(height: 8),
                 isAnimalDetected
                     ? Text(
-                        'Animal Detected at $animalDistance meters',
+                        'Animal Detected at $animalDistance cms',
                         style:
                             const TextStyle(fontSize: 16, color: Colors.white),
                       )

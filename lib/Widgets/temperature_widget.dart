@@ -12,17 +12,21 @@ class TemperatureWidget extends StatefulWidget {
 class _TemperatureWidgetState extends State<TemperatureWidget> {
   late DatabaseReference sensorReference;
   String sensorData = "Loading...";
-  int temp = 0;
+  double temp = 0.0;
 
   @override
   void initState() {
     super.initState();
     sensorReference = FirebaseDatabase.instance.ref().child('temperature');
     sensorReference.onValue.listen((event) {
-      setState(() {
-        temp = event.snapshot.value as int;
-        sensorData = event.snapshot.value.toString();
-      });
+      final dynamic value = event.snapshot.value;
+      if (value != null) {
+        setState(() {
+          temp = value.toDouble();
+          sensorData =
+              temp.toStringAsFixed(2); // Format to display two decimal places
+        });
+      }
     });
   }
 
